@@ -1,6 +1,6 @@
 from k7.common_functions import login_fuc,update_info,get_info
 import requests
-import  pytest
+import pytest
 from k6.read_yaml import get_yaml_data
 import os
 
