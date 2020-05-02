@@ -37,7 +37,7 @@ def test_info_1(login_fixture, test_input, expected):
     print('用例1')
     t = login_fixture
     print(t.headers)  # 头部有Authorization参数
-    if  not t.headers.get('Authorization', ""):
+    if not t.headers.get('Authorization', ""):
         pytest.skip("登录未成功，跳过后面的用例")
 
     r = update_info(t, sex=test_input)
