@@ -5,3 +5,7 @@
   -   ["F",{'message': 'update some data!', 'code': 0}]
   -   ['X',{'message': '参数类型错误', 'code': 3333}]
 
+  test_age_params:
+  -   ["20",{'message': 'update some data!', 'code': 0}]
+  -   ["30",{'message': 'update some data!', 'code': 0}]
+

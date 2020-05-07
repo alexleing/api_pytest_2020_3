@@ -1,15 +1,16 @@
 import requests
 import re
 import pytest
-
-
+import os
+# os.environ["host"] = "http://49.235.92.12:6009"
+# host = os.environ["host"]
 def login_fuc(s,username='admin',password='yoyo123456'):
     '''
     通用方法：登录
     :param s:
     :return: s这个对象即可
     '''
-    url = 'http://49.235.92.12:6009/api/v1/login'
+    url = os.environ["host"]+"/api/v1/login"
     body = {
         'username':username,
         'password':password
@@ -27,7 +28,7 @@ def login_fuc(s,username='admin',password='yoyo123456'):
 
 
 def get_info(s):
-    url = 'http://49.235.92.12:6009/api/v1/userinfo'
+    url = os.environ["host"]+"/api/v1/userinfo"
     r = s.get(url)
     print(r.json())
     assert r.json()['msg'] == 'sucess!'
@@ -35,12 +36,12 @@ def get_info(s):
 
 
 
-def update_info(s, name='admin', mail='123@qq.com', sex='M'):
-    url = 'http://49.235.92.12:6009/api/v1/userinfo'
+def update_info(s, name='admin', mail='123@qq.com', sex='M',age=30):
+    url = os.environ["host"]+"/api/v1/userinfo"
     body = {
         'name': name,
         'sex': sex,
-        'age': 20,
+        'age':age,
         'mail': mail
     }
     r =s.post(url, json=body)
