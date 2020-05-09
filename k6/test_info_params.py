@@ -1,5 +1,5 @@
 from k7.common_functions import login_fuc,update_info,get_info
-import requests
+import allure
 import pytest
 from k6.read_yaml import get_yaml_data
 import os
@@ -13,6 +13,7 @@ test_datas = get_yaml_data(yamlpath)
 print(test_datas['test_info_params'])
 
 
+@allure.story("已经知道该接口有bug")
 @pytest.mark.skip('跳过的原因：有bug')
 def test_2():
     '''已经知道该接口有bug'''
@@ -29,6 +30,8 @@ def test_2():
 #     ("10",{'message': 'update some data!', 'code': 0}),
 # ]
 
+
+@allure.story("使用两个参数")
 @pytest.mark.parametrize('age_input, age_expected', test_datas['test_age_params'])
 @pytest.mark.parametrize('sex_input, expected',test_datas['test_info_params'],
 
@@ -50,10 +53,14 @@ def test_info_1(login_fixture, sex_input, expected, age_input, age_expected):
     assert r["message"] == expected['message']
     assert r["code"] == expected['code']
 
+
+@allure.story("test_3模块 自动化用例")
 @pytest.mark.xxx
 def test_3(login_fixture):
     print('xxx模块 自动化用例')
 
+
+@allure.story("test_4模块 自动化用例")
 @pytest.mark.xxx
 def test_4(login_fixture):
     print('xxx模块 自动化用例')
