@@ -4,6 +4,7 @@ import pytest
 from k6.read_yaml import get_yaml_data
 import os
 
+
 curpath = os.path.dirname(os.path.realpath(__file__))
 print(curpath)
 yamlpath = os.path.join(curpath, 'update_info.yml')

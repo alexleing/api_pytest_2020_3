@@ -1,6 +1,6 @@
 from k9_multipart.login_xmind import  login_fuc
 from k9_multipart.form_data import add_teacher_name
-import  requests
+import requests
 import pytest
 from connet_mysql import select_sql, execute_sql
 
