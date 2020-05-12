@@ -1,6 +1,7 @@
 import pytest
 import requests
-from k7.common_functions import login_fuc,update_info,get_info
+from k7.common_functions import login_fuc
+
 
 '''
 :arg scope: the scope for which this fixture is shared, one of

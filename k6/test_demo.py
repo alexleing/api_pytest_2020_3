@@ -1,5 +1,8 @@
-import  pytest
+import pytest
+import allure
 
+
+@allure.feature("使用1个参数的设置")
 @pytest.mark.parametrize("test_input,expected",
                          [
                              ("1+3",4),("11+3",14)

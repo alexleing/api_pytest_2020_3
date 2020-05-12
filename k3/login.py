@@ -34,7 +34,7 @@ def login_fuc(s,username='admin',password='yoyo123456'):
     assert "站点管理 | Django 站点管理员" in r2.text
     cookie = s.cookies
     print(cookie)
-    return  s
+    return s
     # h = {
     #     'Cookie':cookie
     # }
@@ -47,6 +47,7 @@ def  add_user_info(s):
     url ='http://49.235.92.12:8020/admin/auth/user/add/'
     r = s.get(url)
     assert '增加 用户' in r.text
+    return r
 if __name__ == '__main__':
     s = requests.session()
     login_fuc(s)
