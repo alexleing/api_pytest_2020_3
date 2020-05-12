@@ -67,4 +67,6 @@ if __name__ == '__main__':
     VALUES ('2', '', 'test123', '2019-12-17');
     '''
     execute_sql(insert_sql)
+    
+    # 环境切换测试
 
