@@ -1,0 +1,17 @@
+
+
+
+- a
+- b
+- c
+- d
+- 123
+- 123.98
+- user: admin
+  pwd:
+    pwd1: 123
+    ped1: 1234
+    pwd1: ~
+- user: admin1
+  psw: a1234
+
