@@ -1,0 +1,56 @@
+
+- config:
+   name: 登录案例
+   request:
+     base_url: http://49.235.92.12:6009
+
+
+
+
+- test:
+    name: 输入正确的账号，密码--登录成功
+    request:
+      url: /api/vi/login
+      method: POST
+      json:
+        username: test
+        password: "123456"
+      headers:
+        Content-Type: application/json
+    extract:
+    - token: content.token
+    validate:
+    - eq: [status_code, 200]
+    - eq: [content.code, 0]
+    - eq: [content.msg, login success!]
+    - eq: [content.username, test]
+    - len_eq: [$token, 40]
+
+
+- test:
+    name: 关联登录，获取个人信息
+    request:
+      url: /api/vi/userinfo
+      method: GET
+      headers:
+        Authorization: Token $token
+    validate:
+    - eq: [status_code, 200]
+
+- test:
+    name: 输入错误的账号，密码--登录失败
+    request:
+      url: /api/vi/login
+      method: POST
+      json:
+        username: test
+        password: "1234567"
+      headers:
+        Content-Type: application/json
+    validate:
+    - eq: [status_code, 200]
+    - eq: [content.code, 3003]
+    - eq: [content.msg, 账号或密码不正确]
+    - eq: [content.username, test]
+    - len_eq: [content.token, 0]
+
