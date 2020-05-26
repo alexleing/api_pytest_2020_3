@@ -1,0 +1,35 @@
+- config:
+    name: 用例名称
+    request:
+      base_url:
+        http:49.235.92.12:6009
+
+
+
+- test:
+    name: case描述
+    request:
+      method: GET
+      url: ${base_url}/userinfo
+
+    setup_hooks:
+    -  ${setup_hook()}
+    teardown_hooks:
+    -  ${teardown_hook()}
+
+
+- test:
+    name: sign case
+    request:
+      method: POST
+      utl: http://123.123.345:9999/api/test
+      json:
+        username: test
+        password: "123456"
+        mail: "1"
+    validate:
+      - eq: [statue_code, 200]
+      - eq: [content.msg, login_success!]
+
+    setup_hooks:
+      - ${setup_sign(request)}
