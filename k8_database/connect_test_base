@@ -1,0 +1,41 @@
+from common.common_connet_mysql import DbConnect
+
+
+dbinfo = {
+    "host": "10.168.11.3",
+    "user": "zhx_base_test",
+    "password": "cde3ASDF!",
+    "port": 3306
+}
+
+
+def select_sql(select_sql):
+    '''查询数据库'''
+    db = DbConnect(dbinfo, database="zhx_base_test")
+    result = db.select(select_sql)  # 查询
+    db.close()
+    return result
+
+
+def execute_sql(insert_sql):
+    '''执行sql'''
+    db = DbConnect(dbinfo, database="zhx_base_test")
+    db.execute(insert_sql)  # 查询
+    db.close()
+
+
+if __name__ == '__main__':
+    sql = """SELECT * FROM xxl_job_qrtz_trigger_info WHERE author = 'luke';"""
+    insert_sql = """"""
+    a = execute_sql(insert_sql)
+    b = select_sql(sql)[0]['job_desc']
+    print(b)
+    # print(a[0]['email'])
+    # # for i in a:
+    # #     print(i)
+    # insert_sql = '''INSERT INTO `apps`.`apiapp_card`
+    # (`id`, `card_id`, `card_user`, `add_time`)
+    # VALUES ('2', '', 'test123', '2019-12-17');
+    # '''
+    # execute_sql(insert_sql)
+
