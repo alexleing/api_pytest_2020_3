@@ -32,26 +32,27 @@ import re
 # a = 'hello'
 # b = list(a)
 # f = ''.join(b)
-# print(b)
+# print(b,f)
 # c = a[:4]
 # d = a[-1:]
 # e = d+c
 # print(a, e, f)
 #
-# i = 1
-# j = 0
-# res = []
-# for a in range(101):
-#     number = i + j
-#     i = j
-#     j = number
-#     if number > 100:
-#         break
-#     else:
-#         # print(number)
-#         res.append(number)
-#
-# print(res)
+
+i = 1
+j = 0
+res = []
+for a in range(201):
+    number = i + j
+    i = j
+    j = number
+    if number > 200:
+        break
+    else:
+        # print(number)
+        res.append(number)
+
+print(res)
 
 # a="hello_world_yoyo"
 # b =a.split("_")
@@ -99,12 +100,27 @@ import re
 # c = [str(x)+str(y) for x, y in zip(b, a)]
 # print(c)
 
-L = [1, 2, 3, 11, 2, 5, 3, 2, 5, 3]
-print(list(set(L)))
+# L = [1, 2, 3, 11, 2, 5, 3, 2, 5, 3]
+# print(list(set(L)))
+#
+# L1 = [1, 2, 3, 4, 5]
+# print(L1[10:])
 
-L1 = [1, 2, 3, 4, 5]
-print(L1[10:])
 
+a = [i*i for i in range(1,10)]
+print(a)
+
+def sum_demo(x, y):
+    result = 0
+    for _ in range(2):
+        x +=1
+        y +=1
+        result = x + y
+    return result
+
+if __name__ == '__main__':
+    result = sum_demo(1, 1)
+    print(result)
 
 
 
